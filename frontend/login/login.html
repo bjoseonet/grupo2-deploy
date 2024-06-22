@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../img/logopizzcode.svg">
+    <link rel="stylesheet" href="../css/style-login.css">
+    <script src="https://kit.fontawesome.com/19d2c6b17a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Login | Pizeria, ofertas, promociones, muzarella</title>
+</head>
+
+<body>
+    <div class="container">
+        <header></header>
+        <main>
+
+            <div class="central">
+                <div class="login">
+                    <h2 class="welcome">¿Tenes una Cuenta?</h2>
+                    <h4 class="titulo-registro-03">* Campos obligatorios</h4>
+                    <form class="cuadro">
+                        <input title="ingresa un email valido" type="email" id="inputEmail" class="form-control"
+                            placeholder="Ingresá tu E-mail *" required autofocus>
+                        <input title="ingresa tu contraseña" type="password" id="inputPassword" class="form-control"
+                            placeholder="Ingresá tu Contraseña *" minlength="8" maxlength="20" required>
+                        <div class="checkbox">
+                            <label>
+                                <input id="form__checkbox__login" type="checkbox"> Recordarme
+                            </label>
+                            <button class="form__button__login" type="submit">Iniciar sesión</button>
+                        </div>
+                    </form>
+                    <div class="pie-form">
+                        <a href="../error_404/error_404.html">¿Olvidaste tu contraseña?</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="login-left">
+                <div class="login-registro">
+                    <h2 class="titulo-registro-01">Crea tu Cuenta</h2>
+                    <h3 class="titulo-registro-01">DATOS PERSONALES</h3>
+                    <h3 class="titulo-registro-02">Necesitamos estos pocos datos para poder registrar tu cuenta</h3>
+
+                    <h4 class="titulo-registro-03">* Campos obligatorios</h4>
+
+                    <form class="cuadro-registro">
+                        <input title="el nombre debe tener como minimo 2 caracteres" type="text" id="inputNombre"
+                            class="form-control-registro" placeholder="Tu nombre *"
+                            onchange=" validarInputNombre(this.value)" required>
+                        <div class="errorInputNombre"></div>
+                        <input title="el apellido debe tener como minimo 2 caracteres" type="text" id="inputApellido"
+                            class="form-control-registro" placeholder="Tu apellido *" minlength="1" maxlength="100"
+                            required>
+                        <input title="el codigo postal debe tener como minimo 2 caracteres y maximo 20" type="text"
+                            id="inputCodPostal" class="form-control-registro" placeholder="Código Postal *"
+                            minlength="4" maxlength="20" required>
+
+                        <h3 class="titulo-registro-01">DATOS DE ACCESO</h3>
+                        <h3 class="titulo-registro-02">Necesitarás estos datos para acceder a la página</h3>
+
+                        <input title="ingresa un email valido" type="email" id="inputEmail__registro"
+                            class="form-control-registro" placeholder="E-mail *" required>
+                        <input title="ingresa una contraseña" type="password" id="inputPassword__registro1"
+                            class="form-control-registro" placeholder="Contraseña *" minlength="4" maxlength="20"
+                            required>
+                        <input title="repite la contraseña anterior" type="password" id="inputPassword__registro2"
+                            class="form-control-registro" placeholder="Confirma tu Contraseña *" minlength="4"
+                            maxlength="20" required>
+                        <div class="error"></div>
+
+
+                        <button class="form__button__registro" type="submit">Crear Cuenta</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+        <footer></footer>
+    </div>
+    <script src="../index.js"></script>
+    <script src="../elements.js"></script>
+    <script src="../validarlogin.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,293 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+/* Reset CSS */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  height: 100%;
+}
+
+/* Estilos header  */
+
+header {
+  grid-area: nav;
+  font-family: "Roboto Condensed", sans-serif;
+  background-color: #e94a24; /* Color de fondo */
+  display: flex;
+  justify-content: space-between;
+}
+
+.topnav {
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+}
+
+.topnav a {
+  padding: 7px 6px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+.navbar {
+  width: 100%;
+  height: 50px;
+}
+
+a,
+button {
+  font-family: "Roboto Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-size: 16px;
+  color: antiquewhite;
+}
+
+button {
+  padding: 5px 25px;
+  background-color: #bc2216;
+  border: none;
+  border-radius: 50px;
+}
+
+/* Estilos del footer */
+
+footer {
+  background: #a7ffeb;
+  grid-area: footer;
+  background-color: #1d946b;
+  color: aliceblue;
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+}
+
+.text-presentation,
+.rights-text,
+.opciones-redes {
+  flex: 1;
+}
+
+/*********************/
+
+body {
+  font-family: "Roboto", Arial, sans-serif; /* Aplicar la fuente Roboto */
+  text-align: center;
+}
+body {
+  width: 100%;
+  min-height: 100vh;
+}
+
+main p {
+  margin-bottom: 10px; /* Agrega un espacio entre párrafos */
+  line-height: 1.6; /* Ajusta la altura de línea para mejorar la legibilidad */
+  color: #444; /* Cambia el color del texto */
+  font-size: 18px; /* Ajusta el tamaño de fuente */
+  font-family: "Roboto", Arial, sans-serif; /* Utiliza la fuente Roboto */
+  text-align: justify; /* Justifica el texto para una apariencia más limpia */
+  padding: 10px; /* Agrega un relleno interior para separar el texto del borde */
+  max-width: 80%;
+  margin-left: 9%;
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+}
+
+main {
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #7bb397;
+}
+
+.title {
+  font-weight: 800;
+  color: #2d642d;
+  text-align: center;
+}
+
+form {
+  max-width: 500px;
+  margin: auto;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+input[type="submit"]:hover {
+  background-color: #555;
+}
+
+input[type="file"] {
+  margin-bottom: 15px;
+}
+/* Ajustar al ancho del body sin incluir los márgenes */
+.container {
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+  color: #06936b;
+
+  top: 0;
+  left: 0;
+  right: 0;
+  box-sizing: border-box; /* Incluir padding y border en el ancho */
+}
+
+.container a {
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 15px;
+}
+
+.container a:hover {
+  text-decoration: underline; /* Añadir subrayado al pasar el cursor */
+}
+
+nav a {
+  color: #06936b; /* Cambiar color de texto para los enlaces dentro de nav */
+}
+
+h1 {
+  font-family: "Titan One", sans-serif;
+  color: #06936b;
+}
+
+/* Estilos responsivos */
+@media only screen and (max-width: 550px) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 6% 78% 16%;
+    grid-template-areas:
+      "header"
+      "main"
+      "footer";
+  }
+}
+
+.redes-sociales {
+  display: block;
+}
+
+.redes-sociales a {
+  margin-right: 10px; /* Ajusta el espaciado entre los iconos */
+}
+
+.redes-sociales i {
+  font-size: 24px; /* Ajusta el tamaño de los iconos */
+  color: #fff; /* Cambia el color de los iconos según tu preferencia */
+}
+
+@media screen and (max-width: 455px) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 6% 78% 16%;
+    grid-template-areas:
+      "header"
+      "main"
+      "footer";
+  }
+
+  .navbar {
+    grid-area: navbar;
+    width: 100%;
+    height: 65px;
+  }
+
+  header {
+    grid-area: header;
+    font-family: "Roboto Condensed", sans-serif;
+    background-color: #e94a24; /* Color de fondo */
+    display: flex;
+    justify-content: space-between;
+    height: 65px;
+  }
+
+  .topnav {
+    margin-top: 15px;
+    display: block;
+  }
+
+  .topnav a {
+    display: none;
+  }
+
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+
+  .topnav.responsive {
+    position: relative;
+  }
+  .topnav.responsive a.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+    background-color: #e94a24;
+    background-image: none;
+  }
+
+  .logo {
+    width: 32px;
+    height: auto;
+  }
+
+  .topnav .logo {
+    float: left;
+    display: block;
+  }
+
+  footer {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 100%;
+    grid-area: footer;
+    grid-template-rows: 50% 50%;
+    grid-template-areas:
+      "footer "
+      "footer ";
+  }
+}
