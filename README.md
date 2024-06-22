@@ -8,6 +8,7 @@ La base de datos debe desarrollarse con MySQL, tener al menos 4 tablas, con al m
 
 Entre las tablas al menos deberá haber una relación “uno a muchos”.
 
+
 A través del servidor levantado con Node y Express se debe poder realizar al menos un tipo de alta. (POST)
 
 De la misma forma se debe poder realizar modificaciones de los registros. (PUT)
@@ -27,6 +28,9 @@ Se valorará la aplicación de un token o método de autenticación.
 
 ### Autores
 
-Mariana Distefano
-Angel Isea
-Jose Barrionuevo
+Mariana Distefano.
+
+Angel Isea.
+
+Jose Barrionuevo.
+
