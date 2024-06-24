@@ -17,6 +17,8 @@ const index = (req, res) => {
 };
 
 const show = (req, res) => {
+  console.log('show');
+  console.log(req.params.email);
   const { id } = req.params;
 
   const sql = 'SELECT * FROM usuarios WHERE id = ?';
@@ -30,6 +32,30 @@ const show = (req, res) => {
     }
 
     res.json(rows[0]);
+  });
+};
+
+const getUser = (req, res) => {
+  const email = req.params.email;
+  console.log('getUser');
+  console.log(req.params.email);
+
+  const sql = 'SELECT * FROM usuarios WHERE email = ?';
+  db.query(sql, [email], (error, rows) => {
+    if (error) {
+      return res.status(500).json({ error: 'Intente mas tarde' });
+    }
+
+    if (rows.length == 0) {
+      return res
+        .status(200)
+        .send({ error: 'Este mail No esta registrado getUser' });
+    }
+
+    // console.log('res.json(rows[0]) : ', res.json(rows[0]));
+    res.json(rows);
+    //console.log(rows[0].password);
+    //return rows[0].password;
   });
 };
 
@@ -124,6 +150,7 @@ const destroy = (req, res) => {
 module.exports = {
   index,
   show,
+  getUser,
   store,
   update,
   destroy,
