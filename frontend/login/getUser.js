@@ -53,3 +53,44 @@ function validarUserData(data, passwordInput) {
     }, 2000);
   }
 }
+
+function storeUser(store) {
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(store),
+  };
+  fetch(`${apiUrl}/usuarios/`, options)
+    .then((response) => {
+      // Verifica si la respuesta es exitosa
+      if (!response.ok) {
+        throw new Error(`Error en la solicitud: ${response.statusText}`);
+      }
+      console.log('response.status');
+      console.log(response.status);
+      if (response.status == 200) {
+        //erroresValidacion = true;
+
+        const error = document.querySelector('.error');
+        error.textContent = 'Este mail ya esta registrado';
+
+        setTimeout(() => {
+          error.textContent = '';
+          document.querySelector('#inputEmail__registro').value = '';
+          document.getElementById(`inputEmail__registro`).focus();
+        }, 2000);
+      }
+
+      return response.json();
+    })
+    .then((data) => {
+      console.log('Datos recibidos:', store); // Imprime los datos para la depuración
+      //      validarUserData(data, passwordInput);
+    })
+    .catch((error) => {
+      console.error('Error fetching user store:', error);
+      //      validarUserData([], passwordInput); // Llama a la función con una lista vacía en caso de error
+    });
+}
