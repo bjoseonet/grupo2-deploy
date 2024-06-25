@@ -116,11 +116,20 @@ if (!erroresValidacion) {
         document.getElementById(`inputPassword__registro1`).focus();
       }, 2000);
     }
+    const store = {
+      email: datosRegistro[3],
+      first_name: datosRegistro[0],
+      last_name: datosRegistro[1],
+      zip: datosRegistro[2],
+      password: datosRegistro[4],
+    };
 
     if (!erroresValidacion) {
       localStorage.setItem('datosRegistro', JSON.stringify(datosRegistro));
-      form.reset();
-      window.open('../index.html');
+      console.log(store);
+      storeUser(store);
+      //form.reset();
+      //window.open('../index.html');
     }
   });
 }
@@ -132,20 +141,3 @@ document.addEventListener('DOMContentLoaded', () => {
   renderLogin();
   renderRegistro();
 });
-
-// function getUser(id) {
-//   console.log(`${apiUrl}/usuarios/${id}`);
-//   fetch(`${apiUrl}/usuarios/${id}`, {
-//     method: 'GET',
-//   }).then((response) => response.json());
-// }
-
-//if (!erroresValidacion) {
-//  localStorage.setItem('datosLogin', JSON.stringify(datosLogin));
-//    getUser(JSON.stringify(datosLogin));
-//  getUser(datosLogin[0]);
-//console.log('validarlogin');
-//console.log(response);
-//    formLogin.reset();
-//    window.open("../index.html");
-//}

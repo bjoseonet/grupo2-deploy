@@ -61,6 +61,9 @@ const getUser = (req, res) => {
 
 const store = (req, res) => {
   const email = req.body.email;
+  console.log('req.body');
+
+  console.log(req.body);
 
   const sql = 'SELECT * FROM usuarios WHERE email = ?';
   db.query(sql, [email], (error, rows) => {
