@@ -1,7 +1,7 @@
 // utiliza base de datos local
-const db = require('../db/db');
+//const db = require('../db/db');
 // utiliza base de datos alwaysdata
-//const db = require('../db/dbw');
+const db = require('../db/dbw');
 
 const fs = require('fs');
 const path = require('path');
@@ -13,13 +13,14 @@ const index = (req, res) => {
       return res.status(500).json({ error: 'Intente mas tarde' });
     }
     if (rows.length == 0) {
-      return res.status(404).send({ error: 'No existe el producto' });
+      return res.status(404).send({ error: 'No existen el productos' });
     }
     res.json(rows);
   });
 };
 
 const show = (req, res) => {
+  console.log('SHOW');
   const { id } = req.params;
 
   const sql = 'SELECT * FROM product WHERE id = ?';
@@ -37,6 +38,8 @@ const show = (req, res) => {
 };
 
 const store = (req, res) => {
+  console.log('STORE');
+  console.log(req.body);
   let imageName = '';
   if (req.file) {
     imageName = req.file.filename;
@@ -49,6 +52,9 @@ const store = (req, res) => {
     sql,
     [product_name, description, price, imageName],
     (error, result) => {
+      console.log('error');
+      console.log(error);
+
       if (error) {
         return res.status(500).json({ error: 'Intente mas tarde' });
       }
@@ -61,6 +67,7 @@ const store = (req, res) => {
 };
 
 const update = (req, res) => {
+  console.log('UPDATE');
   const { id } = req.params;
 
   let sql = 'SELECT * FROM product WHERE id = ?';
@@ -112,6 +119,7 @@ const update = (req, res) => {
 };
 
 const destroy = (req, res) => {
+  console.log('DESTROY');
   const { id } = req.params;
 
   let sql = 'SELECT * FROM product WHERE id = ?';

@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const app = express();
 const cors = require('cors');
@@ -18,14 +20,19 @@ app.use(express.json());
 // lo anterior se puede escribir asi
 app.use('/product', require('./routes/product.router'));
 
-// USUARIOS
+// COMENTARIOS
 
 app.use('/coment', require('./routes/coment.router'));
 
-// COMENTARIOS
+// USUARIOS
 
 app.use('/usuarios', require('./routes/usuarios.router'));
 
-const PORT = 3000;
+// AUTENTICACION
+
+app.use('/auth', require('./routes/auth.router'));
+
+const PORT = process.env.PORT || 3000;
+//const PORT = 3000;
 
 app.listen(PORT, () => console.log(`http://localhost:${PORT}`));

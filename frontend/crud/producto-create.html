@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./img/logopizzcode.svg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/19d2c6b17a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="../css/style-product.css">
+    <title>Pizeria, ofertas, promociones, muzarella</title>
+</head>
+
+<body>
+    <div class="container" id="app">
+        <header></header>
+        <main>
+            <form style="background-color: rgb(121, 174, 220);margin:10px auto ; width: 400px; padding: 20px;">
+                <div class="mb-3 row">
+                    <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="nombre" id="nombre" v-model="nombre"
+                            style="background-color: darkorange;">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="descripcion" class="col-sm-2 col-form-label">Descripcion</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="descripcion" id="descripcion" v-model="descripcion"
+                            style="background-color: darkorange;">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="precio" class="col-sm-2 col-form-label">Precio</label>
+                    <div class="col-sm-10">
+                        <input type="number" name="precio" id="precio" v-model="precio"
+                            style="text-align: right; background-color: darkorange;">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="imagen" class="col-sm-2 col-form-label" style="vertical-align: middle;">Imagen</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="imagen" id="imagen" v-model="imagen"
+                            style="background-color: darkorange;">
+                    </div>
+                    <img width="300" height="300" :src="imagen" alt="">
+                </div>
+                <br>
+                <button type="button" class="btn btn-success" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                    title="Confirma dar de alta un Producto" v-on:click="grabar()">Grabar</button>
+
+                <a>&nbsp;&nbsp;&nbsp;&nbsp;</a>
+
+                <button type="button" class="btn btn-success" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                    title="Volver a la pagina de productos" v-on:click="volver()">Volver</button>
+            </form>
+        </main>
+        <footer></footer>
+    </div>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./productos.js"></script>
+    <script src="../index.js"></script>
+    <script src="../elem_mant.js"></script>
+    <script>
+        document.getElementById("buscar").innerHTML = " ";
+    </script>
+</body>
+
+</html>
