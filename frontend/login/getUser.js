@@ -1,4 +1,8 @@
 const apiUrl = 'http://localhost:3000';
+//const apiUrl = 'http://mysql-bjoseonet.alwaysdata.net';
+
+var datosLogin = [];
+//var datosRegistro = [];
 
 function getUser(email, passwordInput) {
   fetch(`${apiUrl}/usuarios/${email}`, {
@@ -7,6 +11,8 @@ function getUser(email, passwordInput) {
     .then((response) => {
       // Verifica si la respuesta es exitosa
       if (!response.ok) {
+        console.log('response.statusText');
+        console.log(response.statusText);
         throw new Error(`Error en la solicitud: ${response.statusText}`);
       }
       return response.json();
@@ -23,8 +29,15 @@ function getUser(email, passwordInput) {
 
 function validarUserData(data, passwordInput) {
   if (data.length > 0) {
+    console.log('validarUserData');
     data.forEach((user) => {
       let passwrodRead = user.password;
+      datosRegistro[0] = user.first_name;
+      datosRegistro[1] = user.last_name;
+      datosRegistro[2] = user.zip;
+      datosRegistro[3] = user.email;
+      datosRegistro[4] = user.password;
+
       if (passwordInput != passwrodRead) {
         const passwordIncorrecta = document.querySelector(
           '.passwordIncorrecta'
@@ -38,6 +51,7 @@ function validarUserData(data, passwordInput) {
           document.getElementById(`inputPassword`).focus();
         }, 2000);
       } else {
+        localStorage.setItem('datosRegistro', JSON.stringify(datosRegistro));
         console.log('usuario correcto');
       }
     });
@@ -71,8 +85,6 @@ function storeUser(store) {
       console.log('response.status');
       console.log(response.status);
       if (response.status == 200) {
-        //erroresValidacion = true;
-
         const error = document.querySelector('.error');
         error.textContent = 'Este mail ya esta registrado';
 
@@ -87,10 +99,8 @@ function storeUser(store) {
     })
     .then((data) => {
       console.log('Datos recibidos:', store); // Imprime los datos para la depuración
-      //      validarUserData(data, passwordInput);
     })
     .catch((error) => {
       console.error('Error fetching user store:', error);
-      //      validarUserData([], passwordInput); // Llama a la función con una lista vacía en caso de error
     });
 }

@@ -1,16 +1,18 @@
 // utiliza base de datos local
-const db = require('../db/db');
+//const db = require('../db/db');
 // utiliza base de datos alwaysdata
-//const db = require('../db/dbw');
+const db = require('../db/dbw');
 
 const index = (req, res) => {
-  const sql = 'SELECT * FROM coment';
+  //const sql = 'SELECT * FROM coment';
+  const sql =
+    'SELECT coment.id, usuarios.email, coment.coment,coment.date_coment FROM coment JOIN usuarios ON coment.usuario = usuarios.id';
   db.query(sql, (error, rows) => {
     if (error) {
       return res.status(500).json({ error: 'Intente mas tarde' });
     }
     if (rows.length == 0) {
-      return res.status(404).send({ error: 'No existe el comentario' });
+      return res.status(404).send({ error: 'No existen comentarios' });
     }
     res.json(rows);
   });
@@ -34,6 +36,7 @@ const show = (req, res) => {
 };
 
 const store = (req, res) => {
+  console.log(req.body.email);
   const email = req.body.email;
 
   const sql = 'SELECT * FROM usuarios WHERE email = ?';
